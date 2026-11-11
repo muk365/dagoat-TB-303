@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagoat TB-303 Bass Line - Computer Controlled</title>
+    <link rel="stylesheet" href="css/tb303.css">
+</head>
+<body>
+
+<div class="synth-workspace">
+
+    <!-- ========================================================
+         The Dagoat TB-303 Hardware Chassis
+         ======================================================== -->
+    <main class="tb303-chassis" id="tb303-machine">
+        
+        <!-- Corner Chassis Screws -->
+        <div class="screw top-left"></div>
+        <div class="screw top-right"></div>
+        <div class="screw bottom-left"></div>
+        <div class="screw bottom-right"></div>
+
+        <!-- 1. Header Bar: Logos & Typography -->
+        <header class="tb-header">
+            <div class="logo-dagoat">
+                <div class="logo-badge">D</div>
+                <div class="logo-text">Dagoat</div>
+            </div>
+
+            <div class="badge-center">
+                <span class="title">COMPUTER CONTROLLED</span>
+                <span class="sub">MONOPHONIC SYNTHESIZER</span>
+            </div>
+
+            <div class="model-badge">
+                <div class="model-name">TB-303</div>
+                <span class="model-sub">Bass Line</span>
+            </div>
+        </header>
+
+        <!-- 2. Knobs Section: Synthesizer Sound Controls -->
+        <section class="knobs-panel">
+            <div class="knobs-grid">
+                
+                <!-- TUNING -->
+                <div class="knob-module">
+                    <span class="knob-label">Tuning</span>
+                    <div class="knob-housing" id="knob-tuning" data-param="tuning">
+                        <svg class="knob-ticks" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="26" fill="none" stroke="#6e737c" stroke-width="1.5" stroke-dasharray="2 6.5" stroke-dashoffset="18"/>
+                        </svg>
+                        <div class="knob-dial">
+                            <div class="knob-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="knob-sublabel"><span>-</span><span>+</span></div>
+                </div>
+
+                <!-- CUTOFF FREQ -->
+                <div class="knob-module">
+                    <span class="knob-label">Cutoff Freq</span>
+                    <div class="knob-housing" id="knob-cutoff" data-param="cutoff">
+                        <svg class="knob-ticks" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="26" fill="none" stroke="#6e737c" stroke-width="1.5" stroke-dasharray="2 6.5" stroke-dashoffset="18"/>
+                        </svg>
+                        <div class="knob-dial">
+                            <div class="knob-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="knob-sublabel"><span>0</span><span>10</span></div>
+                </div>
+
+                <!-- RESONANCE -->
+                <div class="knob-module">
+                    <span class="knob-label">Resonance</span>
+                    <div class="knob-housing" id="knob-resonance" data-param="resonance">
+                        <svg class="knob-ticks" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="26" fill="none" stroke="#6e737c" stroke-width="1.5" stroke-dasharray="2 6.5" stroke-dashoffset="18"/>
+                        </svg>
+                        <div class="knob-dial">
+                            <div class="knob-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="knob-sublabel"><span>0</span><span>10</span></div>
+                </div>
+
+                <!-- ENV MOD -->
+                <div class="knob-module">
+                    <span class="knob-label">Env Mod</span>
+                    <div class="knob-housing" id="knob-envmod" data-param="envMod">
+                        <svg class="knob-ticks" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="26" fill="none" stroke="#6e737c" stroke-width="1.5" stroke-dasharray="2 6.5" stroke-dashoffset="18"/>
+                        </svg>
+                        <div class="knob-dial">
+                            <div class="knob-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="knob-sublabel"><span>0</span><span>10</span></div>
+                </div>
+
+                <!-- DECAY -->
+                <div class="knob-module">
+                    <span class="knob-label">Decay</span>
+                    <div class="knob-housing" id="knob-decay" data-param="decay">
+                        <svg class="knob-ticks" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="26" fill="none" stroke="#6e737c" stroke-width="1.5" stroke-dasharray="2 6.5" stroke-dashoffset="18"/>
+                        </svg>
+                        <div class="knob-dial">
+                            <div class="knob-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="knob-sublabel"><span>0</span><span>10</span></div>
+                </div>
+
+                <!-- ACCENT -->
+                <div class="knob-module">
+                    <span class="knob-label">Accent</span>
+                    <div class="knob-housing" id="knob-accent" data-param="accent">
+                        <svg class="knob-ticks" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="26" fill="none" stroke="#6e737c" stroke-width="1.5" stroke-dasharray="2 6.5" stroke-dashoffset="18"/>
+                        </svg>
+                        <div class="knob-dial">
+                            <div class="knob-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="knob-sublabel"><span>0</span><span>10</span></div>
+                </div>
+
+                <!-- TEMPO -->
+                <div class="knob-module">
+                    <span class="knob-label">Tempo</span>
+                    <div class="knob-housing" id="knob-tempo" data-param="tempo">
+                        <svg class="knob-ticks" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="26" fill="none" stroke="#6e737c" stroke-width="1.5" stroke-dasharray="2 6.5" stroke-dashoffset="18"/>
+                        </svg>
+                        <div class="knob-dial">
+                            <div class="knob-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="knob-sublabel"><span>SLOW</span><span>FAST</span></div>
+                </div>
+
+                <!-- VOLUME -->
+                <div class="knob-module">
+                    <span class="knob-label">Volume</span>
+                    <div class="knob-housing" id="knob-volume" data-param="volume">
+                        <svg class="knob-ticks" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="26" fill="none" stroke="#6e737c" stroke-width="1.5" stroke-dasharray="2 6.5" stroke-dashoffset="18"/>
+                        </svg>
+                        <div class="knob-dial">
+                            <div class="knob-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="knob-sublabel"><span>MIN</span><span>MAX</span></div>
+                </div>
+
+                <!-- WAVEFORM SLIDE SWITCH -->
+                <div class="switch-module">
+                    <span class="knob-label">Waveform</span>
+                    <div class="slide-switch" id="switch-waveform" title="Basculer Sawtooth / Square">
+                        <div class="switch-handle"></div>
+                        <div class="switch-options">
+                            <span>SAW</span>
+                            <span>SQR</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. Middle Section: Mode, Banks, Patterns, Chaining & Tempo LED -->
+        <section class="middle-panel">
+            
+            <!-- Mode Selector Switch: Pattern Play / Write -->
+            <div class="bank-section">
+                <span class="section-tag">Mode</span>
+                <div class="mode-selector-box">
+                    <button class="mode-btn active" id="btn-mode-play" title="Mode Pattern Play (Lecture & Chaînage)">PLAY</button>
+                    <button class="mode-btn" id="btn-mode-write" title="Mode Pattern Write (Édition pas-à-pas)">WRITE</button>
+                </div>
+            </div>
+
+            <!-- Pattern Group (Bank) I, II, III, IV -->
+            <div class="bank-section">
+                <span class="section-tag">Group</span>
+                <div class="bank-group">
+                    <button class="bank-select-btn" data-bank="0" title="Bank I (Presets)">
+                        <span class="mini-led lit"></span>I
+                    </button>
+                    <button class="bank-select-btn" data-bank="1" title="Bank II">
+                        <span class="mini-led"></span>II
+                    </button>
+                    <button class="bank-select-btn" data-bank="2" title="Bank III">
+                        <span class="mini-led"></span>III
+                    </button>
+                    <button class="bank-select-btn" data-bank="3" title="Bank IV">
+                        <span class="mini-led"></span>IV
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pattern Selectors (1 to 8) & Chain Control -->
+            <div class="bank-section">
+                <span class="section-tag">Pattern</span>
+                <div class="bank-group">
+                    <button class="pat-select-btn" data-pat="0" title="Pattern 1 (Shift+clic pour chaîner)"><span class="mini-led lit"></span>1</button>
+                    <button class="pat-select-btn" data-pat="1" title="Pattern 2 (Shift+clic pour chaîner)"><span class="mini-led"></span>2</button>
+                    <button class="pat-select-btn" data-pat="2" title="Pattern 3 (Shift+clic pour chaîner)"><span class="mini-led"></span>3</button>
+                    <button class="pat-select-btn" data-pat="3" title="Pattern 4 (Shift+clic pour chaîner)"><span class="mini-led"></span>4</button>
+                    <button class="pat-select-btn" data-pat="4" title="Pattern 5 (Shift+clic pour chaîner)"><span class="mini-led"></span>5</button>
+                    <button class="pat-select-btn" data-pat="5" title="Pattern 6 (Shift+clic pour chaîner)"><span class="mini-led"></span>6</button>
+                    <button class="pat-select-btn" data-pat="6" title="Pattern 7 (Shift+clic pour chaîner)"><span class="mini-led"></span>7</button>
+                    <button class="pat-select-btn" data-pat="7" title="Pattern 8 (Shift+clic pour chaîner)"><span class="mini-led"></span>8</button>
+                </div>
+                <button class="chain-toggle-btn" id="btn-chain-mode" title="Activer le mode chaînage (sélectionnez plusieurs motifs)">
+                    <span class="mini-led" id="led-chain"></span>
+                    <span>CHAIN</span>
+                </button>
+                <div class="chain-badge" id="chain-readout">PATTERN: 1</div>
+            </div>
+
+            <!-- Tempo / Run Indicator -->
+            <div class="tempo-indicator-box">
+                <span class="label">BATTERY / TEMPO</span>
+                <div class="main-led" id="led-tempo"></div>
+                <span class="tempo-readout" id="tempo-readout">125 BPM</span>
+            </div>
+
+        </section>
+
+        <!-- 4. Lower Section: Keyboard, Modifiers & 16-Step Keypad -->
+        <section class="keyboard-panel">
+
+            <!-- Modifiers Row (Down, Up, Accent, Slide, Rest, Randomizer) -->
+            <div class="modifiers-row">
+                <button class="mod-btn" id="btn-down" title="Transposer une octave vers le bas">
+                    <span class="mod-led" id="led-down"></span>
+                    <span>Down</span>
+                </button>
+
+                <button class="mod-btn" id="btn-up" title="Transposer une octave vers le haut">
+                    <span class="mod-led" id="led-up"></span>
+                    <span>Up</span>
+                </button>
+
+                <button class="mod-btn" id="btn-accent" title="Activer / Désactiver l'Accent sur le pas">
+                    <span class="mod-led" id="led-accent"></span>
+                    <span>Accent</span>
+                </button>
+
+                <button class="mod-btn" id="btn-slide" title="Activer le Slide (Portamento) vers le pas suivant">
+                    <span class="mod-led" id="led-slide"></span>
+                    <span>Slide</span>
+                </button>
+
+                <button class="mod-btn" id="btn-rest" title="Basculer Note / Silence (Rest)">
+                    <span class="mod-led" id="led-rest"></span>
+                    <span>Rest</span>
+                </button>
+
+                <button class="mod-btn" id="btn-clear" title="Effacer le motif">
+                    <span>Clear</span>
+                </button>
+
+                <button class="mod-btn btn-acid" id="btn-random" title="Générer un motif Acid aléatoire">
+                    <span>⚡ Random Acid</span>
+                </button>
+            </div>
+
+            <div class="keys-container">
+                
+                <!-- Big START / STOP Button -->
+                <div class="transport-block">
+                    <button class="big-square-btn" id="btn-start-stop" title="Démarrer / Arrêter la séquence (Barre d'espace)">
+                        <div class="main-led" id="led-start"></div>
+                        <span class="big-btn-label">START /<br>STOP</span>
+                    </button>
+                </div>
+
+                <!-- 16-Step Keypad & Piano Keys -->
+                <div class="step-keyboard">
+                    
+                    <!-- 16 Steps Selector Strip -->
+                    <div class="step-indicators-strip">
+                        <button class="step-select-btn selected" data-step="0"><span class="step-led"></span>1</button>
+                        <button class="step-select-btn" data-step="1"><span class="step-led"></span>2</button>
+                        <button class="step-select-btn" data-step="2"><span class="step-led"></span>3</button>
+                        <button class="step-select-btn" data-step="3"><span class="step-led"></span>4</button>
+                        <button class="step-select-btn" data-step="4"><span class="step-led"></span>5</button>
+                        <button class="step-select-btn" data-step="5"><span class="step-led"></span>6</button>
+                        <button class="step-select-btn" data-step="6"><span class="step-led"></span>7</button>
+                        <button class="step-select-btn" data-step="7"><span class="step-led"></span>8</button>
+                        <button class="step-select-btn" data-step="8"><span class="step-led"></span>9</button>
+                        <button class="step-select-btn" data-step="9"><span class="step-led"></span>10</button>
+                        <button class="step-select-btn" data-step="10"><span class="step-led"></span>11</button>
+                        <button class="step-select-btn" data-step="11"><span class="step-led"></span>12</button>
+                        <button class="step-select-btn" data-step="12"><span class="step-led"></span>13</button>
+                        <button class="step-select-btn" data-step="13"><span class="step-led"></span>14</button>
+                        <button class="step-select-btn" data-step="14"><span class="step-led"></span>15</button>
+                        <button class="step-select-btn" data-step="15"><span class="step-led"></span>16</button>
+                    </div>
+
+                    <!-- Authentic Keyboard Bed (Notes & Step Trigger) -->
+                    <div class="keys-bed">
+                        
+                        <!-- White Keys -->
+                        <div class="white-keys-row">
+                            <button class="key-btn white-key" data-note="C" data-step="1">
+                                <span class="key-label-note">C</span>
+                                <span class="key-label-step">1</span>
+                            </button>
+                            <button class="key-btn white-key" data-note="D" data-step="2">
+                                <span class="key-label-note">D</span>
+                                <span class="key-label-step">2</span>
+                            </button>
+                            <button class="key-btn white-key" data-note="E" data-step="3">
+                                <span class="key-label-note">E</span>
+                                <span class="key-label-step">3</span>
+                            </button>
+                            <button class="key-btn white-key" data-note="F" data-step="4">
+                                <span class="key-label-note">F</span>
+                                <span class="key-label-step">4</span>
+                            </button>
+                            <button class="key-btn white-key" data-note="G" data-step="5">
+                                <span class="key-label-note">G</span>
+                                <span class="key-label-step">5</span>
+                            </button>
+                            <button class="key-btn white-key" data-note="A" data-step="6">
+                                <span class="key-label-note">A</span>
+                                <span class="key-label-step">6</span>
+                            </button>
+                            <button class="key-btn white-key" data-note="B" data-step="7">
+                                <span class="key-label-note">B</span>
+                                <span class="key-label-step">7</span>
+                            </button>
+                            <button class="key-btn white-key" data-note="C_HIGH" data-step="8">
+                                <span class="key-label-note">C'</span>
+                                <span class="key-label-step">8</span>
+                            </button>
+                        </div>
+
+                        <!-- Black Keys (Sharps / Flats) -->
+                        <button class="key-btn black-key key-cs" data-note="C#" data-step="9">
+                            <span class="key-label-note">C#</span>
+                            <span class="key-label-step">9</span>
+                        </button>
+                        <button class="key-btn black-key key-ds" data-note="D#" data-step="10">
+                            <span class="key-label-note">D#</span>
+                            <span class="key-label-step">10</span>
+                        </button>
+                        <button class="key-btn black-key key-fs" data-note="F#" data-step="11">
+                            <span class="key-label-note">F#</span>
+                            <span class="key-label-step">11</span>
+                        </button>
+                        <button class="key-btn black-key key-gs" data-note="G#" data-step="12">
+                            <span class="key-label-note">G#</span>
+                            <span class="key-label-step">12</span>
+                        </button>
+                        <button class="key-btn black-key key-as" data-note="A#" data-step="13">
+                            <span class="key-label-note">A#</span>
+                            <span class="key-label-step">13</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ========================================================
+         Bottom Toolbar & Features Drawer
+         ======================================================== -->
+    <div class="bottom-toolbar">
+        
+        <div class="tool-group">
+            <select class="preset-select" id="preset-selector" title="Charger un riff de légende">
+                <option value="0">Preset 1: Phuture - Acid Trax</option>
+                <option value="1">Preset 2: Daft Punk - Da Funk</option>
+                <option value="2">Preset 3: Josh Wink - Higher State</option>
+                <option value="3">Preset 4: Resonance Madness</option>
+                <option value="4">Preset 5: Hardfloor 303 Rolling</option>
+                <option value="5">Preset 6: Jaydee - Plastic Dreams</option>
+                <option value="6">Preset 7: Square Acid Bouncer</option>
+                <option value="7">Preset 8: Submarine Acid Groove</option>
+            </select>
+
+            <button class="action-btn" id="btn-toggle-inspector">
+                <span>☰ Pattern Inspector</span>
+            </button>
+        </div>
+
+        <div class="tool-group">
+            <button class="action-btn" id="btn-record-loop">
+                <span>⏺ Enregistrer la boucle</span>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- 16-Step Visual Matrix Inspector Drawer -->
+    <div class="pattern-inspector-drawer" id="pattern-inspector">
+        <div class="matrix-grid" id="matrix-grid">
+            <!-- Populated dynamically via ui.js -->
+        </div>
+    </div>
+
+    <!-- Analog Stompbox & Acid FX Unit (Drive, Delay, Swing) -->
+    <div class="mod-stompbox">
+        
+        <div class="knob-module">
+            <span class="knob-label">Overdrive</span>
+            <div class="knob-housing" id="knob-drive" data-param="drive">
+                <div class="knob-dial"><div class="knob-indicator"></div></div>
+            </div>
+            <div class="knob-sublabel"><span>CLEAN</span><span>DIRTY</span></div>
+        </div>
+
+        <div class="knob-module">
+            <span class="knob-label">Acid Delay</span>
+            <div class="knob-housing" id="knob-delay" data-param="delayMix">
+                <div class="knob-dial"><div class="knob-indicator"></div></div>
+            </div>
+            <div class="knob-sublabel"><span>DRY</span><span>WET</span></div>
+        </div>
+
+        <div class="knob-module">
+            <span class="knob-label">Swing / Groove</span>
+            <div class="knob-housing" id="knob-swing" data-param="swing">
+                <div class="knob-dial"><div class="knob-indicator"></div></div>
+            </div>
+            <div class="knob-sublabel"><span>OFF</span><span>HEAVY</span></div>
+        </div>
+
+    </div>
+
+    <!-- Keyboard Shortcuts Guide -->
+    <footer class="help-footer">
+        <p>
+            Raccourcis : <kbd>Espace</kbd> Démarrer/Arrêter | <kbd>Shift</kbd>+Clic sur Pattern ou bouton <kbd>CHAIN</kbd> pour boucler plusieurs motifs (32/64 pas) | <kbd>R</kbd> Random Acid | Touches <kbd>A</kbd>-<kbd>K</kbd> Clavier direct | Web MIDI compatible !
+        </p>
+    </footer>
+
+</div>
+
+<!-- Audio Engine Scripts -->
+<script src="js/audio-engine.js"></script>
+<script src="js/sequencer.js"></script>
+<script src="js/knobs.js"></script>
+<script src="js/ui.js"></script>
+
+</body>
+</html>
